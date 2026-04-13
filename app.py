@@ -39,6 +39,10 @@ def list_users():
 def user_movies(user_id):
     return f"Movies page for user {user_id}"
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
+
 
 if __name__ == "__main__":
     app.run(debug=True)
